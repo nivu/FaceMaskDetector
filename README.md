@@ -49,7 +49,7 @@ pip install -r requirements.txt
 
 3. Run facemask.py by typing the following command on your Command Prompt:
 ```
-python facemask.py
+python run.py
 ```
 
 #### The Project is now ready to use !!

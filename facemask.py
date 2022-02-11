@@ -7,12 +7,12 @@ Created on Wed Jul 22 15:56:47 2020
 
 
 import numpy as np
-import keras
-import keras.backend as k
-from keras.layers import Conv2D,MaxPooling2D,SpatialDropout2D,Flatten,Dropout,Dense
-from keras.models import Sequential,load_model
-from keras.optimizers import Adam
-from keras.preprocessing import image
+from tensorflow import keras
+import tensorflow.keras.backend as k
+from tensorflow.keras.layers import Conv2D,MaxPooling2D,SpatialDropout2D,Flatten,Dropout,Dense
+from tensorflow.keras.models import Sequential,load_model
+from tensorflow.keras.optimizers import Adam
+from tensorflow.keras.preprocessing import image
 import cv2
 import datetime
 
@@ -34,7 +34,7 @@ model.add(Dense(1,activation='sigmoid'))
 
 model.compile(optimizer='adam',loss='binary_crossentropy',metrics=['accuracy'])
 
-from keras.preprocessing.image import ImageDataGenerator
+from tensorflow.keras.preprocessing.image import ImageDataGenerator
 train_datagen = ImageDataGenerator(
         rescale=1./255,
         shear_range=0.2,

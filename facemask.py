@@ -7,12 +7,13 @@ Created on Wed Jul 22 15:56:47 2020
 
 
 import numpy as np
-from tensorflow import keras
-import tensorflow.keras.backend as k
-from tensorflow.keras.layers import Conv2D,MaxPooling2D,SpatialDropout2D,Flatten,Dropout,Dense
-from tensorflow.keras.models import Sequential,load_model
+import keras
+import keras.backend as k
+from keras.layers import Conv2D,MaxPooling2D,SpatialDropout2D,Flatten,Dropout,Dense
+from keras.models import Sequential,load_model
+#from keras.optimizers import Adam
 from tensorflow.keras.optimizers import Adam
-from tensorflow.keras.preprocessing import image
+from keras.preprocessing import image
 import cv2
 import datetime
 
@@ -34,7 +35,7 @@ model.add(Dense(1,activation='sigmoid'))
 
 model.compile(optimizer='adam',loss='binary_crossentropy',metrics=['accuracy'])
 
-from tensorflow.keras.preprocessing.image import ImageDataGenerator
+from keras.preprocessing.image import ImageDataGenerator
 train_datagen = ImageDataGenerator(
         rescale=1./255,
         shear_range=0.2,
@@ -68,8 +69,7 @@ model.save('mymodel.h5',model_saved)
 
 mymodel=load_model('mymodel.h5')
 #test_image=image.load_img('C:/Users/Karan/Desktop/ML Datasets/Face Mask Detection/Dataset/test/without_mask/30.jpg',target_size=(150,150,3))
-test_image=image.load_img(r'C:/Users/karan/Desktop/FaceMaskDetector/test/with_mask/1-with-mask.jpg',
-                          target_size=(150,150,3))
+test_image=image.load_img(r'/Users/siranjevigv/nunnari_labs_proj/pyexpo/face_mask_final/FaceMaskDetector/test/with_mask/1-with-mask.jpg',target_size=(150,150,3))
 test_image
 test_image=image.img_to_array(test_image)
 test_image=np.expand_dims(test_image,axis=0)
